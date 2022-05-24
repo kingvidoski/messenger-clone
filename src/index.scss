@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Grape+Nuts&family=Manrope:wght@200;300;400&family=Maven+Pro:wght@400;500;600;700&family=Montserrat:ital@1&family=Nunito:ital,wght@0,200;0,300;0,400;1,200;1,300&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300;400;500;600;700&family=Roboto&family=Shadows+Into+Light&display=swap');
+
+$color: #000;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  a {
+    text-decoration: none;
+    color: $color;
+  }
+
+  ul {
+    list-style: none;
+  }
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+%flex {
+  display: flex;
+}
+
+@mixin Align {
+  @extend %flex;
+  align-items: center;
+}
+
+@mixin Flex {
+  @extend %flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin mq($size) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
+
+body {
+  width: 100vw;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+  @include mq(768px) {
+      overflow-y: scroll;
+    }
+
+  nav {
+    height: 72px;
+    margin-top: 20px;
+    padding: 30px 0;
+    @include Align;
+    justify-content: space-between;
+  }
+
+  section {
+    height: 400px;
+    @extend %flex;
+    justify-content: space-between;
+    @include mq(768px) {
+      height: fit-content;
+      flex-wrap: wrap;
+    }
+  }
+
+  .container {
+    width: 500px;
+    min-height: 260px;
+    max-height: 460px;
+    @extend %flex;
+    padding-bottom: 50px;
+    background: rgba(0, 0, 0, 0.02);
+    margin: 0 auto;
+    flex-flow: column;
+    overflow-y: scroll;
+    flex: 1;
+
+    @include mq(768px) {
+      width: 90%;
+      max-height: 370px;
+      padding: 0 20px;
+      padding-bottom: 30px;
+      overflow-y: scroll;
+    }
+
+    @include mq(400px){
+      max-height: 470px;
+    }
+
+    #button {
+      margin: 20px auto;
+      position: fixed;
+      bottom: 0;
+      width: 500px;
+      z-index: 1;
+
+      .input-box {
+        display: flex !important;
+        flex-flow: row;
+
+        .input-field {
+          flex: 1;
+        }
+
+        .input-btn {
+          flex: 0;
+          @include mq(768px) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .card {
+      margin: 5px 0;
+
+      .card_box {
+        @include Flex;
+        position: relative;
+
+        .message_user {
+          max-width: 400px;
+          height: fit-content;
+          font-family: 'Quicksand', sans-serif;
+          color: rgba(0, 0, 0, 0.8);
+          padding: 10px;
+          margin-left: auto;
+          background: #0b81ff;
+          border-radius: 10px;
+
+          @include mq(768px) {
+            max-width: 60%;
+          }
+        }
+      }
+    }
+    .cardFR {
+      margin: 15px 0;
+
+      .cardFR_box {
+        @extend %flex;
+        position: relative;
+
+        span {
+          font-size: 12px;
+          color: rgba(0, 0, 0, 0.4);
+          position: absolute;
+          top: -8px;
+          left: 35px;
+        }
+
+        .message_card {
+          max-width: 400px;
+          height: fit-content;
+          color: rgba(0, 0, 0, 0.8);
+          padding: 10px;
+          margin-right: auto;
+          margin: 10px;
+          background: #e9e9eb;
+          border-radius: 0 20px 20px 10px;
+          order: 2;
+
+          @include mq(768px) {
+            max-width: 60%;
+          }
+        }
+
+        .imgFR {
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          margin-top: 8px;
+          margin-left: 5px;
+          order: 1;
+          align-self: flex-start;
+        }
+      }
+    }
+  }
+}
