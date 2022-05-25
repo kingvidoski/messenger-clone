@@ -40,7 +40,7 @@ const ChatPage = ({nickname}) => {
     const sendMessage = (e) => {
     e.preventDefault();
         db.collection('messages').add({
-            username: name,
+            username: userName,
             text: input,
             photo: photo,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
@@ -50,7 +50,7 @@ const ChatPage = ({nickname}) => {
 
     return (
     <Container>
-        <Animate />
+        <Animate name={name} />
         <div className="container">
             <form id="button">
                 <FormControl className='input-box'>

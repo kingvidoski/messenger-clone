@@ -24,9 +24,9 @@ const Login = ({change, name}) => {
 
         TweenMax.to(app.current, 0, { css: { visibility: 'visible' } });
 
-        tl.fromTo(firstHeading, 1.2, { y: 100, ease: Power3.easeOut }, { y: 0 }, "-=0.8")
-            .fromTo(secondHeading, 1.2, { y: 100, ease: Power3.easeOut }, { y: 0 }, "-=0.7")
-            .fromTo(image, 1.2, { x: 50, ease: Power3.easeOut }, { x: 0 }, "-=1.2")
+        tl.fromTo(firstHeading, 1.2, { y: 120, ease: Power3.easeOut }, { y: 0 }, "-=0.8")
+            .fromTo(secondHeading, 1.2, { y: 120, ease: Power3.easeOut }, { y: 0 }, "-=0.7")
+            .fromTo(image, 1.2, { x: 70, ease: Power3.easeOut }, { x: 0 }, "-=1.2")
     })
 
     const handleLogin = () => {

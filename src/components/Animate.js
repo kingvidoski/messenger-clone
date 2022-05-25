@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-import { selectUserName, selectUserPhoto } from '../features/user/UserSlice';
+import { selectUserPhoto } from '../features/user/UserSlice';
 import PermPhoneMsgIcon from '@mui/icons-material/PermPhoneMsg';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import ChatIcon from '@mui/icons-material/Chat';
@@ -9,7 +9,7 @@ import DeblurIcon from '@mui/icons-material/Deblur';
 import MicIcon from '@mui/icons-material/Mic';
 import InterpreterModeIcon from '@mui/icons-material/InterpreterMode';
 
-const Animate = () => {
+const Animate = ({name}) => {
     const style = { '--i': 0 };
     const style1 = { '--i': 1 };
     const style2 = {'--i': 2};
@@ -19,7 +19,6 @@ const Animate = () => {
     const style6 = {'--i': 6};
     const style7 = {'--i': 7};
 
-    const name = useSelector(selectUserName);
     const photo = useSelector(selectUserPhoto);
 
     return (
