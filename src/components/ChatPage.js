@@ -12,7 +12,7 @@ import Animate from "./Animate";
 import FlipMove from 'react-flip-move';
 import ReactScrollableFeed from 'react-scrollable-feed';
 
-const ChatPage = ({nickname}) => {
+const ChatPage = () => {
     const [input, setInput] = useState("");
     const [name, setName] = useState("");
     const [messages, setMessages] = useState([]);
@@ -27,14 +27,9 @@ const ChatPage = ({nickname}) => {
 
 
     useEffect(() => {
-        setName(() => {
-            if (nickname !== "") {
-                return nickname
-            } else {
-                return userName
-            };
-        });
+        setName(userName);
     }, [userName]);
+
 
 
     const sendMessage = (e) => {

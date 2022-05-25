@@ -12,10 +12,11 @@ function App() {
 
   console.log(userName)
 
-  const handleName = (e) => {
+    function handleName(e) {
     e.preventDefault();
+    e.stopPropagation();
     setUserName(e.target.value);
-  }
+  };
 
   return (
     <Router>

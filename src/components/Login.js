@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { FormControl, InputLabel, Input } from '@mui/material';
 import { auth, provider } from '../firebase';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +7,7 @@ import { useLayoutEffect, useRef } from 'react';
 import { TweenMax, TimelineLite, Power3 } from 'gsap';
 
 
-const Login = ({change, name}) => {
+const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     
@@ -46,7 +45,9 @@ const Login = ({change, name}) => {
                 photo: user.picture.data.url,
             })
         )
-    }
+    };
+
+
 
     return (
     <Container ref={app}>
@@ -57,12 +58,6 @@ const Login = ({change, name}) => {
             </Hero>
             <HeroImg><img src="https://z-p3-scontent.flos1-2.fna.fbcdn.net/v/t39.8562-6/120973513_338186077283942_8148888802958728934_n.png?_nc_cat=1&ccb=1-7&_nc_sid=6825c5&_nc_ohc=peBUQ1t2y7QAX-AevMW&_nc_ht=z-p3-scontent.flos1-2.fna&oh=00_AT_DlPC8URAWpWeXuYjzKYmbP0Xe3twIMLq8_FtwGzDlVw&oe=628F0B27" alt="Hero" /></HeroImg>
         </section>
-        <LoginForm>
-            <FormControl>
-                <InputLabel>Enter a nickname...</InputLabel>
-                <Input onChange={change} value={name} />
-            </FormControl>
-        </LoginForm>
         <LoginBtn onClick={handleLogin}>Login</LoginBtn>
     </Container>
     )
@@ -136,9 +131,6 @@ const HeroImg = styled.div`
     }
 `;
 
-const LoginForm = styled.form`
-    margin-top: -20px;
-`;
 
 const LoginBtn = styled.button`
     font-size: 19px;
